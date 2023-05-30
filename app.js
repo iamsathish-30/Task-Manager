@@ -17,12 +17,16 @@ app.use('/api/v1/tasks',taskRoutes);
 
 const start = async()=>{
     try{
-        await connectDb(process.env.MONGODB_URI)
+        /*URI la symbols use pannuna adha encode panni tha anupanu 
+        for this example we use @ adhu oda encryption %40*/
+        await connectDb(process.env.MONGODB_URI);
         app.listen(process.env.PORT,()=>{
             console.log(`The Server is running on the port ${process.env.PORT}`);
         }) 
     }
-    catch(err){console.log(err)};
+    catch(err){
+        console.log(err)
+    };
 }
 
 
